@@ -8,11 +8,13 @@ class PageViewItem extends StatelessWidget {
     required this.image,
     required this.subTitle,
     required this.backgroundImage,
+    required this.isVisible,
   });
   final Widget title;
   final String image;
   final String subTitle;
   final String backgroundImage;
+  final bool isVisible;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,13 +33,16 @@ class PageViewItem extends StatelessWidget {
                 right: 0,
                 child: SvgPicture.asset(image, fit: BoxFit.contain),
               ),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  'تخط',
-                  style: TextStyle(
-                    color: Color(0xFF949D9E),
-                    fontWeight: FontWeight.bold,
+              Visibility(
+                visible: isVisible,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    'تخط',
+                    style: TextStyle(
+                      color: Color(0xFF949D9E),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

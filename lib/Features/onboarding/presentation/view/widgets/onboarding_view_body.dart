@@ -5,15 +5,41 @@ import 'package:fruite_hub/constants.dart';
 import 'package:fruite_hub/core/utils/app_colors.dart';
 import 'package:fruite_hub/core/widgets/custom_button.dart';
 
-class OnboardingViewBody extends StatelessWidget {
+class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
+
+  @override
+  State<OnboardingViewBody> createState() => _OnboardingViewBodyState();
+}
+
+class _OnboardingViewBodyState extends State<OnboardingViewBody> {
+  late PageController pageController;
+  int currentIndex = 0;
+
+  @override
+  void initState() {
+    pageController = PageController();
+    pageController.addListener(() {
+      currentIndex = pageController.page!.round();
+
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: OnboardingPageView()),
+        Expanded(child: OnboardingPageView(pageController: pageController)),
         DotsIndicator(
+          position: currentIndex.toDouble(),
           dotsCount: 2,
           decorator: DotsDecorator(
             activeColor: AppColors.kPrimaryColor,
@@ -21,9 +47,15 @@ class OnboardingViewBody extends StatelessWidget {
           ),
         ),
         SizedBox(height: 29),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-          child: CustomButton(title: 'ابدأ الان'),
+        Visibility(
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          visible: currentIndex == 1 ? true : false,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+            child: CustomButton(title: 'ابدأ الان'),
+          ),
         ),
         SizedBox(height: 43),
       ],
