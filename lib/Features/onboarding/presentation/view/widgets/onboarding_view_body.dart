@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:fruite_hub/Features/Auth/presentation/view/login_view.dart';
 import 'package:fruite_hub/Features/onboarding/presentation/view/widgets/onboarding_page_view.dart';
 import 'package:fruite_hub/constants.dart';
 import 'package:fruite_hub/core/utils/app_colors.dart';
@@ -54,7 +55,12 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           visible: currentIndex == 1 ? true : false,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-            child: CustomButton(title: 'ابدأ الان'),
+            child: CustomButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+              },
+              title: 'ابدأ الان',
+            ),
           ),
         ),
         SizedBox(height: 43),

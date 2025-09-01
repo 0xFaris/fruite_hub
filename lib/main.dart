@@ -23,7 +23,10 @@ class FruitsHUB extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Cairo',
+      ),
       title: 'Fruits HUB',
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashView.routeName,

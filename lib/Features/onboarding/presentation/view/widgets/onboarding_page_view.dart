@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruite_hub/Features/onboarding/presentation/view/widgets/pageview_item.dart';
+import 'package:fruite_hub/core/utils/app_colors.dart';
 import 'package:fruite_hub/core/utils/app_images.dart';
+import 'package:fruite_hub/core/utils/app_text_styles.dart';
 
 class OnboardingPageView extends StatelessWidget {
   const OnboardingPageView({super.key, required this.pageController});
@@ -15,9 +17,19 @@ class OnboardingPageView extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('مرحبًا بك في ', style: TextStyle(fontSize: 23)),
-              Text('HUB', style: TextStyle(fontSize: 23)),
-              Text('Fruit', style: TextStyle(fontSize: 23)),
+              Text('مرحبًا بك في ', style: TextStyles.bold23),
+              Text(
+                'HUB',
+                style: TextStyles.bold23.copyWith(
+                  color: AppColors.kSecondaryColor,
+                ),
+              ),
+              Text(
+                'Fruit',
+                style: TextStyles.bold23.copyWith(
+                  color: AppColors.kPrimaryColor,
+                ),
+              ),
             ],
           ),
           image: Assets.assetsImagesPageView1Logo,

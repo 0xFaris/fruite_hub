@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.title});
+  const CustomButton({super.key, required this.title, this.onPressed});
   final String title;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -16,7 +17,7 @@ class CustomButton extends StatelessWidget {
           ),
         ),
 
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           title,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
