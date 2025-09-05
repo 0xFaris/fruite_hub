@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fruite_hub/Features/Auth/presentation/view/login_view.dart';
 import 'package:fruite_hub/Features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:fruite_hub/Features/splash/presentation/view/widgets/splash_view_body.dart';
+import 'package:fruite_hub/constants.dart';
+import 'package:fruite_hub/core/services/shared_preferences_singleton.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -23,8 +26,13 @@ class _SplashViewState extends State<SplashView> {
   }
 
   void excuteNavagiation() {
+    bool isOnboardingSeen = Prefss.getBool(kIsonboardingSeen);
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, Onboarding.routeName);
+      if (isOnboardingSeen) {
+        Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+      } else {
+        Navigator.of(context).pushReplacementNamed(Onboarding.routeName);
+      }
     });
   }
 }

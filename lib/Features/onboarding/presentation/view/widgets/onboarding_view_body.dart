@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruite_hub/Features/Auth/presentation/view/login_view.dart';
 import 'package:fruite_hub/Features/onboarding/presentation/view/widgets/onboarding_page_view.dart';
 import 'package:fruite_hub/constants.dart';
+import 'package:fruite_hub/core/services/shared_preferences_singleton.dart';
 import 'package:fruite_hub/core/utils/app_colors.dart';
 import 'package:fruite_hub/core/widgets/custom_button.dart';
 
@@ -22,9 +23,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     pageController = PageController();
     pageController.addListener(() {
       currentIndex = pageController.page!.round();
-
-      setState(() {});
     });
+    print(currentIndex);
+    setState(() {});
     super.initState();
   }
 
@@ -57,6 +58,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
             child: CustomButton(
               onPressed: () {
+                Prefss.setBool(kIsonboardingSeen, true);
+                print(Prefss.getBool(kIsonboardingSeen));
                 Navigator.of(context).pushReplacementNamed(LoginView.routeName);
               },
               title: 'ابدأ الان',
