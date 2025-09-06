@@ -21,13 +21,13 @@ class OnboardingPageView extends StatelessWidget {
               Text(
                 'HUB',
                 style: TextStyles.bold23.copyWith(
-                  color: AppColors.kSecondaryColor,
+                  color: AppColors.secondaryColor,
                 ),
               ),
               Text(
                 'Fruit',
                 style: TextStyles.bold23.copyWith(
-                  color: AppColors.kPrimaryColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
             ],

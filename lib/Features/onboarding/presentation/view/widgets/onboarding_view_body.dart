@@ -44,8 +44,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           position: currentIndex.toDouble(),
           dotsCount: 2,
           decorator: DotsDecorator(
-            activeColor: AppColors.kPrimaryColor,
-            color: AppColors.kPrimaryColor.withValues(alpha: 0.5),
+            activeColor: AppColors.primaryColor,
+            color: AppColors.primaryColor.withValues(alpha: 0.5),
           ),
         ),
         SizedBox(height: 29),

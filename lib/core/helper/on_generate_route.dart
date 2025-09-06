@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruite_hub/Features/Auth/presentation/view/login_view.dart';
+import 'package:fruite_hub/Features/auth/presentation/view/signup_view.dart';
 import 'package:fruite_hub/Features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:fruite_hub/Features/splash/presentation/view/splash_view.dart';
 
@@ -13,7 +14,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => Onboarding());
     case LoginView.routeName:
       return MaterialPageRoute(builder: (_) => LoginView());
+    case SignupView.routeName:
+      return MaterialPageRoute(builder: (_) => SignupView());
     default:
-      return MaterialPageRoute(builder: (_) => Scaffold());
+      return MaterialPageRoute(
+        builder: (_) => Scaffold(
+          body: Center(child: Text('No route defined for ${settings.name}')),
+        ),
+      );
   }
 }

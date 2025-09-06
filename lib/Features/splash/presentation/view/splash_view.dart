@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruite_hub/Features/Auth/presentation/view/login_view.dart';
+import 'package:fruite_hub/Features/auth/presentation/view/login_view.dart';
 import 'package:fruite_hub/Features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:fruite_hub/Features/splash/presentation/view/widgets/splash_view_body.dart';
 import 'package:fruite_hub/constants.dart';
