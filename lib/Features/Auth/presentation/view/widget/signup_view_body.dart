@@ -41,7 +41,7 @@ class SignupViewBody extends StatelessWidget {
               title: 'تمتلك حساب بالفعل؟',
               title2: 'تسجيل دخول',
               onTap: () {
-                Navigator.pushNamed(context, LoginView.routeName);
+                Navigator.pop(context);
               },
             ),
           ],
