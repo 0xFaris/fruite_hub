@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fruite_hub/Features/Auth/presentation/view/login_view.dart';
+import 'package:fruite_hub/Features/auth/presentation/view/widget/dont_have_account.dart';
 import 'package:fruite_hub/Features/auth/presentation/view/widget/terms_and_conditions.dart';
 import 'package:fruite_hub/constants.dart';
 import 'package:fruite_hub/core/widgets/custom_button.dart';
@@ -34,6 +36,14 @@ class SignupViewBody extends StatelessWidget {
             TermsAndConditionsWidget(),
             SizedBox(height: 30),
             CustomButton(title: 'إنشاء حساب جديد', onPressed: () {}),
+            SizedBox(height: 20),
+            DontHaveAccountWidget(
+              title: 'تمتلك حساب بالفعل؟',
+              title2: 'تسجيل دخول',
+              onTap: () {
+                Navigator.pushNamed(context, LoginView.routeName);
+              },
+            ),
           ],
         ),
       ),
